@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cost Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cost Details</h1>
+    {% if discount_enabled %}
+        <p>You played for {{ hour }} hour(s) and {{ minute }} minute(s).</p>
+        <p>The cost with a special member discount is equal to: {{ cost }}</p>
+    {% else %}
+        <p>You played for {{ hour }} hour(s) and {{ minute }} minute(s).</p>
+        <p>The cost is equal to: {{ cost }} Toumaan</p>
+    {% endif %}
+    <a href="/" class="button">Home</a>
+</body>
+
+</html>

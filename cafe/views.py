@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Customer
-import datetime
-import jdatetime
+
 
 def total_income(income):
     return round(sum(income), 3)
@@ -15,13 +14,6 @@ def hour_price(integer, decimal, price):
     dec = round(decimal * 100, 2)
     hour_cost = (integer * price) + (dec * (price / 60))
     return hour_cost
-
-def clock_show():
-    geo_time = datetime.datetime.now()
-    pre_time = jdatetime.datetime.now()
-    georgian = geo_time.strftime("%m/%d/%Y, %H:%M:%S")
-    persian = pre_time.strftime("%m/%d/%Y, %H:%M:%S")
-    return f"{georgian} Equivalent to {persian}\n"
 
 def home(request):
     return render(request, 'cafe/home.html')

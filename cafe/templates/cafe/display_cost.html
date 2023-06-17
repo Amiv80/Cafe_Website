@@ -11,45 +11,71 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            flex-direction: column;
+            min-height: 100vh;
+            font-size: 18px;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 6px;
+            padding: 40px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid #00abe4;
         }
 
         h1 {
-            text-align: center;
+            margin-bottom: 20px;
         }
 
-        p {
-            margin-bottom: 10px;
-            text-align: center;
+        .cost-info {
+            margin-bottom: 30px;
+        }
+
+        .time {
+            font-weight: bold;
+        }
+
+        .cost {
+            font-size: 26px;
+            font-family: Tahoma;
+            color: #ff0000;
+            margin-top: 10px;
         }
 
         .button {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
+            padding: 15px 25px;
+            background-color: #00ffe1;
+            color: rgb(0, 0, 0);
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 5px;
             transition: background-color 0.3s ease;
+            font-weight: bold;
         }
 
         .button:hover {
-            background-color: #45a049;
+            background-color: #00ff80;
         }
     </style>
 </head>
 
 <body>
-    <h1>Cost Details</h1>
-    {% if discount_enabled %}
-        <p>You played for {{ hour }} hour(s) and {{ minute }} minute(s).</p>
-        <p>The cost with a special member discount is equal to: {{ cost }}</p>
-    {% else %}
-        <p>You played for {{ hour }} hour(s) and {{ minute }} minute(s).</p>
-        <p>The cost is equal to: {{ cost }} Toumaan</p>
-    {% endif %}
-    <a href="/" class="button">Home</a>
+    <div class="container">
+        <h1>Cost Details</h1>
+        <div class="cost-info">
+            {% if discount_enabled %}
+                <p>You played for <span class="time">{{ hour }}</span> hour(s) and <span class="time">{{ minute }}</span> minute(s).</p>
+                <p>The cost with a special member discount is:</p>
+                <p class="cost">{{ cost }}</p>
+            {% else %}
+                <p>You played for <span class="time">{{ hour }}</span> hour(s) and <span class="time">{{ minute }}</span> minute(s).</p>
+                <p>The cost is:</p>
+                <p class="cost">{{ cost }} Toumaan</p>
+            {% endif %}
+        </div>
+        <a href="/" class="button">Home</a>
+    </div>
 </body>
 
 </html>

@@ -7,11 +7,11 @@ def total_income(income):
     return round(sum(income), 3)
 
 def minute_price(price, clock):
-    minute_cost = round((price / 60) * clock, 2)
+    minute_cost = round((price / 60) * clock, 3)
     return minute_cost
 
 def hour_price(integer, decimal, price):
-    dec = round(decimal * 100, 2)
+    dec = round(decimal * 100, 3)
     hour_cost = (integer * price) + (dec * (price / 60))
     return hour_cost
 
@@ -70,7 +70,7 @@ def display_cost(request):
         context = {
             'hour': hour,
             'minute': minute,
-            'cost': cost,
+            'cost': round(cost, 3),
             'discount_enabled': discount_enabled,
         }
         return render(request, 'cafe/display_cost.html', context)

@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Customer
 
 
 def total_income(income):
@@ -76,3 +75,5 @@ def display_cost(request):
         return render(request, 'cafe/display_cost.html', context)
     else:
         return HttpResponse('Invalid request')
+    
+

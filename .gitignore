@@ -1,6 +1,13 @@
-venv/
+.env
+.env.*
 
-**/__pycache__/
 *.pyc
+__pycache__/
 
-db.sqlite3
+local_settings.py
+
+**/__init__.py
+.git/
+
+*.sqlite3
+*.db

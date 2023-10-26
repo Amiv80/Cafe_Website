@@ -4,7 +4,7 @@ from .models import Member
 
 class MemberAdmin(admin.ModelAdmin):
     list_display = ["name", "vip_member", "date_add"]
-    list_filter = ["vip_member"]  # Note the use of a tuple here
+    list_filter = ["vip_member"]
 
 
 admin.site.register(Member, MemberAdmin)
